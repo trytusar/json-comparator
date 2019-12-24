@@ -1,5 +1,5 @@
 # JSON Comparator Library
-A simple library which will generate JSON diff and JSON patched valued.
+A simple library which will generate JSON diff and JSON patched valued. json-patch library is used to generate the diff patch and json patch. 
 It takes four types of arguments: File, JsonString, Java Object and JsonNode
 
 Add library to your project
