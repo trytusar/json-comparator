@@ -10,11 +10,17 @@ Install the jar file to local maven repo. Present inside target directory.
 
 Add dependency in pom.xml
 
-      <dependency>
+    <dependency>
         <groupId>com.json.comparator</groupId>
         <artifactId>json-comparator</artifactId>
         <version>0.0.1</version>
-      </dependency>
+    </dependency>
+
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>2.10.1</version>
+    </dependency>
       
       
  Methods present in class JsonCompareUtil:
