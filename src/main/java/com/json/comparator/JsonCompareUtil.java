@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,6 +15,8 @@ import com.github.fge.jsonpatch.diff.JsonDiff;
 
 public class JsonCompareUtil {
 
+	private static final Logger log = Logger.getLogger(JsonCompareUtil.class);
+	
 	public static Optional<JsonDiffResponse> compareJsonNode(JsonNode jsonNode1, JsonNode jsonNode2) {
 
 		JsonDiffResponse jsonDiffResponse = null;
@@ -28,7 +33,7 @@ public class JsonCompareUtil {
 			jsonDiffResponse.setPatchedJson(patchedJson);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error in compareJsonNode", e);
 		}
 		return Optional.ofNullable(jsonDiffResponse);
 	}
@@ -41,7 +46,7 @@ public class JsonCompareUtil {
 		try {
 
 			if (!file1.exists() || !file2.exists()) {
-				System.out.println("File doesn't exist");
+				log.error("File(s) doesn't exist");
 				return Optional.ofNullable(null);
 			}
 
@@ -57,7 +62,7 @@ public class JsonCompareUtil {
 			return compareJsonNode(patch1, patch2);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error in compareJsonFiles", e);
 		} finally {
 			try {
 				if (fis1 != null)
@@ -86,7 +91,7 @@ public class JsonCompareUtil {
 			return compareJsonNode(patch1, patch2);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error in compareJsonString()", e);
 		}
 		return Optional.ofNullable(null);
 	}
@@ -100,7 +105,7 @@ public class JsonCompareUtil {
 
 			// Verify required or not
 			if (obj1.getClass() != obj2.getClass()) {
-				System.out.println("Object class type doesn't match");
+				log.error("Object class type doesn't match");
 				return Optional.ofNullable(null);
 			}
 
@@ -113,7 +118,7 @@ public class JsonCompareUtil {
 			return compareJsonNode(patch1, patch2);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error in compareJsonObject()", e);
 		}
 		return Optional.ofNullable(null);
 	}
