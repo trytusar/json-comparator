@@ -4,7 +4,7 @@ It takes four types of arguments: File, JsonString, Java Object and JsonNode
 
 Add library to your project
 
-Install the jar file to local maven repo.
+Install the jar file to local maven repo. Present inside target directory.
 
     mvn install:install-file -Dfile=json-comparator.jar -DgroupId=com.json.comparator -DartifactId=json-comparator -Dversion=0.0.1 -Dpackaging=jar 
 
@@ -17,7 +17,7 @@ Add dependency in pom.xml
       </dependency>
       
       
- Methods:
+ Methods present in class JsonCompareUtil:
   
     public static Optional<JsonDiffResponse> compareJsonFiles(File file1, File file2);
     public static Optional<JsonDiffResponse> compareJsonString(String json1, String json2);
@@ -25,7 +25,7 @@ Add dependency in pom.xml
     public static Optional<JsonDiffResponse> compareJsonNode(JsonNode jsonNode1, JsonNode jsonNode2);
     
  Usage:
- 
+ Sample json files are present inside resources directory.
     
     /**
      * Test Application
