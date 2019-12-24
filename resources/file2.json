@@ -1,0 +1,21 @@
+{
+	"name": {
+		"first": "john",
+		"lst": "Doe",
+		"nickName": "Barsa Priyadarsini"
+	},
+	"address": null,
+	"birthday": "1980-01-01",
+	"dummy": "Sample",
+	"occupation": "Software Enggineer",
+	"phone": [
+		{
+			"number": "9853838937",
+			"type": "home"
+		},
+		{
+			"number": "9999999999",
+			"type": "mobile"
+		}
+	]
+}
